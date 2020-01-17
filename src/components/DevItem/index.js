@@ -1,7 +1,7 @@
-import React from "react";
-import Icon from "../Icon";
+import React from 'react';
+import Icon from '../Icon';
 
-import "./styles.css";
+import './styles.css';
 
 function DevItem({ dev, onEdit, onDelete }) {
   const [{ editMode, dev: oldDev }, setEditMode] = onEdit;
@@ -18,16 +18,16 @@ function DevItem({ dev, onEdit, onDelete }) {
   }
 
   return (
-    <li className="dev-item">
+    <li className='dev-item'>
       <header>
         <img src={dev.avatar_url} alt={dev.name} />
-        <div className="user-info">
+        <div className='user-info'>
           <strong>{dev.name}</strong>
-          <span>{dev.techs.join(", ")}</span>
+          <span>{dev.techs.join(', ')}</span>
         </div>
-        <div className="icons">
-          <Icon onClick={editDev} type="pen" />
-          <Icon onClick={deleteDev} type="trash" />
+        <div className='icons'>
+          <Icon onClick={editDev} type='pen' />
+          <Icon onClick={deleteDev} type='trash' />
         </div>
       </header>
       <p>{dev.bio}</p>

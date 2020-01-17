@@ -1,25 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
-import "./styles.css";
+import './styles.css';
 
 function DevForm({ onAdd, onEdit, editModeState }) {
   const [{ editMode, dev }, setEditMode] = editModeState;
-  const [github, setGithub] = useState("");
-  const [name, setName] = useState("");
-  const [bio, setBio] = useState("");
-  const [avatar_url, setAvatarURL] = useState("");
-  const [techs, setTechs] = useState("");
-  const [latitude, setLatitude] = useState("");
-  const [longitude, setLongitude] = useState("");
+  const [github, setGithub] = useState('');
+  const [name, setName] = useState('');
+  const [bio, setBio] = useState('');
+  const [avatar_url, setAvatarURL] = useState('');
+  const [techs, setTechs] = useState('');
+  const [latitude, setLatitude] = useState('');
+  const [longitude, setLongitude] = useState('');
 
   useEffect(() => {
     if (!editMode) {
       // Localização do navegador (Pois o usuário está cadastrando)
-      setGithub("");
-      setTechs("");
-      setName("");
-      setBio("");
-      setAvatarURL("");
+      setGithub('');
+      setTechs('');
+      setName('');
+      setBio('');
+      setAvatarURL('');
       navigator.geolocation.getCurrentPosition(
         position => {
           const { latitude, longitude } = position.coords;
@@ -50,7 +50,7 @@ function DevForm({ onAdd, onEdit, editModeState }) {
       setName(name);
       setBio(bio);
       setAvatarURL(avatar_url);
-      setTechs(techs.join(", "));
+      setTechs(techs.join(', '));
       setLatitude(latitude);
       setLongitude(longitude);
     }
@@ -75,20 +75,20 @@ function DevForm({ onAdd, onEdit, editModeState }) {
         latitude,
         longitude
       });
-    setGithub("");
-    setTechs("");
-    setName("");
-    setBio("");
-    setAvatarURL("");
+    setGithub('');
+    setTechs('');
+    setName('');
+    setBio('');
+    setAvatarURL('');
   }
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="input-block">
-        <label htmlFor="github">Usuário do GitHub</label>
+      <div className='input-block'>
+        <label htmlFor='github'>Usuário do GitHub</label>
         <input
-          name="github"
-          id="github"
+          name='github'
+          id='github'
           required
           value={github}
           disabled={editMode}
@@ -96,65 +96,65 @@ function DevForm({ onAdd, onEdit, editModeState }) {
         />
       </div>
 
-      <div className="input-block" hidden={!editMode}>
-        <label htmlFor="name">Nome</label>
+      <div className='input-block' hidden={!editMode}>
+        <label htmlFor='name'>Nome</label>
         <input
-          name="name"
-          id="name"
+          name='name'
+          id='name'
           required={editMode}
           value={name}
           onChange={e => setName(e.target.value)}
         />
       </div>
 
-      <div className="input-block">
-        <label htmlFor="techs">Tecnologias</label>
+      <div className='input-block'>
+        <label htmlFor='techs'>Tecnologias</label>
         <input
-          name="techs"
-          id="techs"
+          name='techs'
+          id='techs'
           required
           value={techs}
           onChange={e => setTechs(e.target.value)}
         />
       </div>
 
-      <div className="input-block" hidden={!editMode}>
-        <label htmlFor="avatar_url">URL do Avatar</label>
+      <div className='input-block' hidden={!editMode}>
+        <label htmlFor='avatar_url'>URL do Avatar</label>
         <input
-          name="avatar_url"
-          id="avatar_url"
+          name='avatar_url'
+          id='avatar_url'
           required={editMode}
           value={avatar_url}
           onChange={e => setAvatarURL(e.target.value)}
         />
       </div>
 
-      <div className="input-block" hidden={!editMode}>
-        <label htmlFor="bio">Bio (descrição)</label>
+      <div className='input-block' hidden={!editMode}>
+        <label htmlFor='bio'>Bio (descrição)</label>
         <textarea
-          name="bio"
-          id="bio"
+          name='bio'
+          id='bio'
           value={bio}
           onChange={e => setBio(e.target.value)}
         />
       </div>
 
-      <div className="input-group">
-        <div className="input-block">
-          <label htmlFor="latitude">Latitude</label>
+      <div className='input-group'>
+        <div className='input-block'>
+          <label htmlFor='latitude'>Latitude</label>
           <input
-            name="latitude"
-            id="latitude"
+            name='latitude'
+            id='latitude'
             value={latitude}
             required
             onChange={e => setLatitude(e.target.value)}
           />
         </div>
-        <div className="input-block">
-          <label htmlFor="longitude">Longitude</label>
+        <div className='input-block'>
+          <label htmlFor='longitude'>Longitude</label>
           <input
-            name="longitude"
-            id="longitude"
+            name='longitude'
+            id='longitude'
             value={longitude}
             required
             onChange={e => setLongitude(e.target.value)}
@@ -162,7 +162,7 @@ function DevForm({ onAdd, onEdit, editModeState }) {
         </div>
       </div>
 
-      <button type="submit">Salvar</button>
+      <button type='submit'>Salvar</button>
     </form>
   );
 }
