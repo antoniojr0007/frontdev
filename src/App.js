@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import api from './services/api';
+import React, { useState, useEffect } from "react";
+import api from "./services/api";
 
-import './Global.css';
-import './App.css';
-import './Sidebar.css';
-import './Main.css';
+import "./Global.css";
+import "./App.css";
+import "./Sidebar.css";
+import "./Main.css";
 
-import DevItem from './components/DevItem';
-import DevForm from './components/DevForm';
+import DevItem from "./components/DevItem";
+import DevForm from "./components/DevForm";
 
 // Component  : Bloco isolado de HTML, CSS e JS, o qual não interfere no restante da aplicação (Obs.: Primeira Letra Maiúscula)
-// Propriedade: Informações que um componente 'Pai' passa para o componente 'Filho'
+// Propriedade: Informações que um componente "Pai" passa para o componente "Filho"
 // Estado     : Informações mantida pelo componente (Lembrar: imutabilidade)
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
   // Load devs
   useEffect(() => {
     async function loadDevs() {
-      const response = await api.get('devs');
+      const response = await api.get("devs");
 
       setDevs(response.data.devs);
     }
@@ -29,7 +29,7 @@ function App() {
   }, []);
 
   async function handleAddDev(data) {
-    const response = await api.post('devs', data);
+    const response = await api.post("devs", data);
     const { data: newDev } = response;
     let add = true;
     for (let oldDev in devs) if (devs[oldDev]._id === newDev._id) add = false;
@@ -61,9 +61,9 @@ function App() {
   }
 
   return (
-    <div id='app'>
+    <div id="app">
       <aside>
-        <strong>{editMode ? 'Editar' : 'Cadastrar'}</strong>
+        <strong>{editMode ? "Editar" : "Cadastrar"}</strong>
         <DevForm
           onAdd={handleAddDev}
           onEdit={handleEditDev}
