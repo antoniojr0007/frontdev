@@ -14,7 +14,7 @@ function DevItem({ dev, onEdit, onDelete }) {
   }
 
   function deleteDev() {
-    onDelete(dev.github_username);
+    onDelete(dev.github);
   }
 
   return (
@@ -31,9 +31,7 @@ function DevItem({ dev, onEdit, onDelete }) {
         </div>
       </header>
       <p>{dev.bio}</p>
-      <a href={`https://github.com/${dev.github_username}`}>
-        Acessar perfil no Github
-      </a>
+      <a href={`https://github.com/${dev.github}`}>Acessar perfil no GitHub</a>
     </li>
   );
 }

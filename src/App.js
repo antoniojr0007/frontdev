@@ -39,12 +39,12 @@ function App() {
   }
 
   async function handleEditDev(dev, data) {
-    const { github_username } = dev;
+    const { github } = dev;
     const newDevs = devs.map(async dev => {
-      if (dev.github_username === github_username) {
-        const response = await api.put(`devs/${github_username}`, data);
+      if (dev.github === github) {
+        const response = await api.put(`devs/${github}`, data);
         if (response.data.modifiedCount > 0) {
-          const newDev = await api.get(`devs/${github_username}`);
+          const newDev = await api.get(`devs/${github}`);
           return newDev.data;
         } else return dev;
       } else return dev;
@@ -55,9 +55,9 @@ function App() {
     })();
   }
 
-  async function handleDelDev(github_username) {
-    await api.delete(`devs/${github_username}`);
-    setDevs(devs.filter(dev => dev.github_username !== github_username));
+  async function handleDelDev(github) {
+    await api.delete(`devs/${github}`);
+    setDevs(devs.filter(dev => dev.github !== github));
   }
 
   return (
