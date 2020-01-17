@@ -1,7 +1,7 @@
 import React from "react";
 import Icon from "../Icon";
 
-import "./style.css";
+import "./styles.css";
 
 function DevItem({ dev, onEdit, onDelete }) {
   const [{ editMode, dev: oldDev }, setEditMode] = onEdit;

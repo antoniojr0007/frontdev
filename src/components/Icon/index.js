@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./style.css";
+import "./styles.css";
 
 function Icon({ type, onClick }) {
   const clickable = onClick ? "clickable" : "";

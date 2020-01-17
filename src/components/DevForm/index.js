@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import "./style.css";
+import "./styles.css";
 
 function DevForm({ onAdd, onEdit, editModeState }) {
   const [{ editMode, dev }, setEditMode] = editModeState;
